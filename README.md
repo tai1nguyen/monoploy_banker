@@ -1,4 +1,4 @@
-# monopoly_banker
+# General_Monopoly_Banker
 
 > A Vue.js project
 
