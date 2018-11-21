@@ -19,14 +19,12 @@ export default {
             valid: false,
             name: '',
             nameRules: [
-                v => !!v || 'Name is required',
-                v => v.length <= 10 || 'Name must be less than 10 characters'
+                v => !!v || 'Name is required'
             ],
             startingBalance: 0,
             startingBalanceRules: [
                 v => !!v || 'A starting balance is required',
-                v => parseInt(v) > 0
-                    || 'Starting balance must be a valid non-zero number'
+                v => parseInt(v) > 0 || 'Starting balance must be a valid non-zero number'
             ]
         }
     },
@@ -35,7 +33,7 @@ export default {
     },
     computed: {
         ...mapGetters({
-            players: 'playerDataProvider/playerList'
+            players: 'playerDataProvider/playersList'
         })
     },
     methods: {
@@ -65,7 +63,7 @@ export default {
 </script>
 
 <style>
-.SetupWizardPlayerList.scrollable {
+.SetupWizardPlayersList.scrollable {
     height: 300px;
     overflow: auto;
 }

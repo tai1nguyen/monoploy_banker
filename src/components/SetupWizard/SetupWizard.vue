@@ -29,7 +29,8 @@ export default {
     methods: {
         completeSetup: function()
         {
-            // Route players to the expense tracker.
+            // Route players to the dashbaord.
+            this.$router.push({ name: 'DASHBOARD' });
         }
     }
 };

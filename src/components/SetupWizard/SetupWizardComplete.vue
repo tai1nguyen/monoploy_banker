@@ -12,6 +12,6 @@
 
 export default {
     name: 'SetupWizardComplete',
-    data: function() {}
+    data: function() { return {}; }
 };
 </script>

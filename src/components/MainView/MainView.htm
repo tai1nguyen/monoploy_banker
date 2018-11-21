@@ -1,23 +1,24 @@
 <div>
     <!-- Toolbar -->
     <v-toolbar color="indigo" dense clipped-left dark fixed app>
-        <v-toolbar-side-icon @click.stop="isOpen = !isOpen"></v-toolbar-side-icon>
-        <v-toolbar-title >Monopoly Banker</v-toolbar-title>
+        <!-- <v-toolbar-side-icon @click.stop="isOpen = !isOpen"></v-toolbar-side-icon> -->
+        <v-toolbar-title >General Monopoly Banker</v-toolbar-title>
         <v-layout row wrap justify-left align-center>
             <v-spacer></v-spacer>
             <v-toolbar-items class="hidden-sm-and-down">
-                <v-btn flat>Link One</v-btn>
-                <v-btn flat>Link Two</v-btn>
-                <v-btn flat>Link Three</v-btn>
+                <v-btn @click="routeTo('SETUP_WIZARD')" flat>Setup</v-btn>
+                <v-btn @click="routeTo('DASHBOARD')" flat>Dashboard</v-btn>
             </v-toolbar-items>
         </v-layout>
     </v-toolbar>
     <!-- Main content router -->
     <v-content fluid fill-height>
-        <router-view name="MainViewContent"></router-view>
+        <v-container>
+            <router-view name="MainViewContent"></router-view>
+        </v-container>
     </v-content>
     <!-- Footer content router -->
-    <v-footer app height="100px">
+    <v-footer app>
         <router-view name="MainViewFooter"></router-view>
     </v-footer>
 </div>
