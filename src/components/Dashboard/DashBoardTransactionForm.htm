@@ -1,0 +1,42 @@
+<v-dialog :persistent="true" v-model="isDialogOpen" max-width="500px">
+    <v-card>
+        <v-toolbar
+            color="indigo"
+            dark
+        >
+            <v-toolbar-title>Transaction Details</v-toolbar-title>
+            <v-spacer></v-spacer>
+            <v-btn icon @click="cancelTransaction">
+                <v-icon>cancel</v-icon>
+            </v-btn>
+        </v-toolbar>
+        <v-card-text>
+            <form>
+                <v-select
+                    v-model="payer"
+                    :items="payerNames"
+                    label="Who is paying?"
+                ></v-select>
+                <v-select
+                    v-model="payee"
+                    :items="payeeNames"
+                    label="Who is getting paid?"
+                ></v-select>
+                <v-text-field
+                    v-model="amount"
+                    label="How much is being transfered?"
+                    type="number"
+                ></v-text-field>
+                <v-text-field
+                    v-model="reason"
+                    label="Why was this payment made?"
+                ></v-text-field>
+            </form>
+        </v-card-text>
+        <v-card-actions>
+            <v-spacer></v-spacer>
+            <v-btn color="blue darken-1" flat @click="cancelTransaction">Cancel</v-btn>
+            <v-btn color="blue darken-1" flat @click="saveTransaction">Save</v-btn>
+        </v-card-actions>
+    </v-card>
+</v-dialog>

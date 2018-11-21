@@ -16,6 +16,13 @@ export default {
     },
     components:{
         aMainView: MainView
+    },
+    mounted: function()
+    {
+        // When the app loads
+        // always show the set
+        // up wizard.
+        this.$router.push({ name: 'SETUP_WIZARD' });
     }
 };
 </script>

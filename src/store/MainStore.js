@@ -9,13 +9,17 @@
 import Vue from 'vue';
 import Vuex from 'vuex';
 
+import { DASHBOARD_STATE_MANAGER } from './modules/DashboardStateManager.js';
 import { PLAYER_DATA_PROVIDER } from './modules/PlayerDataProvider.js';
+import { TRANSACTION_MANAGER } from './modules/TransactionManager.js';
 
 Vue.use(Vuex);
 
 export const MAIN_STORE = new Vuex.Store({
     namespaced: true,
     modules: {
-        playerDataProvider: PLAYER_DATA_PROVIDER
+        dashboardStateManager: DASHBOARD_STATE_MANAGER,
+        playerDataProvider: PLAYER_DATA_PROVIDER,
+        transactionManager: TRANSACTION_MANAGER
     }
 });
