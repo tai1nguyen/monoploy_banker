@@ -16,14 +16,14 @@ export const TRANSACTION_MANAGER = {
         ADD_TRANSACTION_TO_HISTORY: (state, data) =>
         {
             var historyItem = {
-                date: new Date(),
-                message: data.payer
+                date: new Date().now(),
+                message: '[' + data.payer + ']'
                     + ' paid '
-                    + data.payee
+                    + '[' + data.payee + ']'
                     + ' '
-                    + parseInt(data.amount)
+                    + '[$' + parseInt(data.amount) + ']'
                     + ' for '
-                    + data.reason
+                    + '[' + data.reason + ']'
             };
 
             state.history.push(historyItem);
@@ -54,7 +54,13 @@ export const TRANSACTION_MANAGER = {
     getters: {
         transactionHistory: (state) =>
         {
-            return state.history;
+            // Because items are pushed into the array,
+            // this getter will return the transaction
+            // history in reverse so that new transactions
+            // will appear at the top of the 
+            return _.chain(state.history)
+                .reverse()
+                .value();
         }
     }
 };

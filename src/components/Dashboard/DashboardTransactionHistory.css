@@ -1,0 +1,4 @@
+.DashboardTransactionHistory.list {
+    max-height: 355px;
+    overflow: auto;
+}

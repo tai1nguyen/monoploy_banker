@@ -1,0 +1,4 @@
+.SetupWizardPlayersList.scrollable {
+    height: 300px;
+    overflow: auto;
+}

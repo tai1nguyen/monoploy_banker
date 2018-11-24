@@ -1,5 +1,5 @@
 <template src="./SetupWizardAddPlayers.htm"></template>
-
+<style src="./SetupWizardAddPlayers.css"></style>
 <script>
 /**
  * This step allows users to add player to their game.
@@ -61,10 +61,3 @@ export default {
     }
 };
 </script>
-
-<style>
-.SetupWizardPlayersList.scrollable {
-    height: 300px;
-    overflow: auto;
-}
-</style>
