@@ -15,28 +15,36 @@
         <v-stepper-content step="1" fixed>
             <a-welcome-step></a-welcome-step>
 
-            <v-btn color="primary" @click="step = 2">
-                Continue
-            </v-btn>
+            <v-card-actions>
+                <v-spacer></v-spacer>
+                <v-btn color="primary" @click="step = 2">
+                    Continue
+                </v-btn>
+            </v-card-actions>
         </v-stepper-content>
 
         <v-stepper-content step="2" fixed>
             <a-add-players-step></a-add-players-step>
 
-            <v-btn color="primary" @click="step = 3">
-                Continue
-            </v-btn>
-
-            <v-btn flat @click="step = 1">Back</v-btn>
+            <v-card-actions>
+                <v-btn @click="step = 1">Back</v-btn>
+                <v-spacer></v-spacer>
+                <v-btn color="primary" @click="step = 3">
+                    Continue
+                </v-btn>
+            </v-card-actions>
         </v-stepper-content>
 
         <v-stepper-content step="3">
             <a-complete-step></a-complete-step>
 
-            <v-btn color="primary" @click="completeSetup">
-                Finish
-            </v-btn>
-            <v-btn flat @click="step = 2">Back</v-btn>
+            <v-card-actions>
+                <v-btn @click="step = 2">Back</v-btn>
+                <v-spacer></v-spacer>
+                <v-btn color="primary" @click="completeSetup">
+                    Finish
+                </v-btn>
+            </v-card-actions>
         </v-stepper-content>
     </v-stepper-items>
 </v-stepper>

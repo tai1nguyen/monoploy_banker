@@ -49,7 +49,7 @@ export const PLAYER_DATA_PROVIDER = {
                     // Update the player's
                     // expense and net profit.
                     player.expense = parseInt(player.expense) + parseInt(transaction.expense);
-                    player.income = parseInt(player.netProfit) - parseInt(transaction.expense);
+                    player.netProfit = parseInt(player.netProfit) - parseInt(transaction.expense);
 
                     // Stop searching.
                     return;

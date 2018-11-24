@@ -17,13 +17,12 @@ export default {
         return {
             payer: '',
             payee: '',
-            amount: 0,
+            amount: null,
             reason: ''
         };
     },
     computed: {
         ...mapGetters({
-            isDialogOpen: 'dashboardStateManager/isTransactionFormOpen',
             payerNames: 'playerDataProvider/playerNamesList'
         }),
         payeeNames: function()
@@ -34,20 +33,24 @@ export default {
             {
                 return name === self.payer;
             });
+        },
+        isDisabled: function()
+        {
+            // Returns true if any of the
+            // transaction details are missing.
+            return _.isEmpty(this.payer)
+                || _.isEmpty(this.payee)
+                || _.isEmpty(this.amount)
+                || _.isEmpty(this.reason);
         }
     },
     methods: {
         ...mapActions({
-            toggleDialog: 'dashboardStateManager/toggleTransactionForm',
             addTransaction: 'transactionManager/addTransaction'
         }),
         cancelTransaction: function()
         {
             this.clearEntries();
-
-            // Calling this action should
-            // only ever toggle the modal off.
-            this.toggleDialog();
         },
         saveTransaction: function()
         {
@@ -61,18 +64,19 @@ export default {
                 }
             );
 
-            // Calling this action should
-            // only ever toggle the modal off.
-            this.toggleDialog();
+            // Clear saved transaction
+            // details so users can
+            // input a new transaction.
+            this.clearEntries();
         },
         clearEntries: function()
         {
             // Reset input fields.
             this.payer = '';
             this.payee = '';
-            this.amount = 0;
+            this.amount = null;
             this.reason = '';
         }
     }
-}
+};
 </script>

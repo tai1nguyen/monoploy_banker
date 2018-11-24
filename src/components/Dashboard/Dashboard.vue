@@ -10,9 +10,10 @@
  * @date 11/20/2018
  */
 
-import { mapActions, mapGetters } from 'vuex';
+import { mapGetters } from 'vuex';
 
 import DashboardTransactionForm from './DashboardTransactionForm.vue';
+import DashboardTransactionHistory from './DashboardTransactionHistory.vue';
 
 export default {
     name: 'Dashboard',
@@ -34,16 +35,12 @@ export default {
         };
     },
     components: {
-        aTransactionForm: DashboardTransactionForm
+        aTransactionForm: DashboardTransactionForm,
+        aTransactionHistoryList: DashboardTransactionHistory
     },
     computed: {
         ...mapGetters({
             playerData: 'playerDataProvider/playersList'
-        })
-    },
-    methods: {
-        ...mapActions({
-            openTransactionForm: 'dashboardStateManager/toggleTransactionForm'
         })
     }
 };
