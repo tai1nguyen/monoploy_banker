@@ -23,8 +23,14 @@ export default {
             ],
             startingBalance: 0,
             startingBalanceRules: [
-                v => !!v || 'A starting balance is required',
-                v => parseInt(v) > 0 || 'Starting balance must be a valid non-zero number'
+                v => !!v || 'A starting balance is required'
+            ],
+            startingBalanceOptions: [
+                500,
+                1000,
+                1500,
+                2000,
+                2500
             ]
         }
     },
@@ -34,7 +40,14 @@ export default {
     computed: {
         ...mapGetters({
             players: 'playerDataProvider/playersList'
-        })
+        }),
+        isDisabled: function()
+        {
+            // Disable the add player button if
+            // user has not entered a starting balance
+            // or name.
+            return !this.startingBalance || _.isEmpty(this.name);
+        }
     },
     methods: {
         ...mapActions({
@@ -42,16 +55,17 @@ export default {
         }),
         addPlayer: function()
         {
-            // Only insert a player into our
-            // state if the starting balance is valid.
-            if(parseInt(this.startingBalance) > 0
-                && this.name != '')
-            {
-                this.addAPlayer({
-                    name: this.name,
-                    startingBalance: parseInt(this.startingBalance)
-                });
-            }
+            // Commit the player object
+            // to the state object.
+            this.addAPlayer({
+                name: this.name,
+                startingBalance: parseInt(this.startingBalance)
+            });
+
+            // Reset player name so
+            // user can just type a
+            // new one.
+            this.name = '';
         },
         startOver: function()
         {
