@@ -24,7 +24,7 @@
     </v-card-text>
     <v-card-actions>
         <v-spacer></v-spacer>
-        <v-btn dark color="red" @click="cancelTransaction">Start Over</v-btn>
-        <v-btn dark color="green" :disabled="isDisabled" @click="saveTransaction">Save Transaction</v-btn>
+        <v-btn color="error" @click="cancelTransaction">Start Over</v-btn>
+        <v-btn color="success" :disabled="isDisabled" @click="saveTransaction">Save Transaction</v-btn>
     </v-card-actions>
 </v-card>
