@@ -4,12 +4,13 @@
     ripple
 >
     <v-list-tile-content>
-        <!-- <v-list-tile-title>Title</v-list-tile-title> -->
         <v-list-tile-sub-title class="text--primary">Name: {{ player.name }}</v-list-tile-sub-title>
         <v-list-tile-sub-title>Current Balance: {{ player.netProfit }}</v-list-tile-sub-title>
     </v-list-tile-content>
 
     <v-list-tile-action>
-        <v-icon color="red" @click="removePlayer(player.id)">remove_circle</v-icon>
+        <v-btn color="red" small flat fab @click="removePlayer(player.id)">
+            <v-icon>remove_circle</v-icon>
+        </v-btn>
     </v-list-tile-action>
 </v-list-tile>

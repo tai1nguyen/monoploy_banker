@@ -45,14 +45,35 @@ export default {
         {
             // Disable the add player button if
             // user has not entered a starting balance
-            // or name.
-            return !this.startingBalance || _.isEmpty(this.name);
+            // or name or the player has not yet been
+            // added.
+            return (!this.startingBalance
+                || _.isEmpty(this.name)
+                || this.isAlreadyAdded(this.name))
+                ? true
+                : false;
         }
     },
     methods: {
         ...mapActions({
             addAPlayer: 'playerDataProvider/addPlayer'
         }),
+        isAlreadyAdded: function(name)
+        {
+            var self = this;
+
+            // Loop through the list of players and
+            // find the player with the same name as
+            // the person the user is adding. If a
+            // match if found that means the payer
+            // has already been added.
+            var isAlreadyAdded = _.find(self.players, function(player)
+            {
+                return player.name.toUpperCase() === self.name.toUpperCase();
+            });
+
+            return isAlreadyAdded;
+        },
         addPlayer: function()
         {
             // Commit the player object
