@@ -94,7 +94,12 @@ export const PLAYER_DATA_PROVIDER = {
     getters: {
         playersList: (state) =>
         {
-            return state.playersList;
+            // Reverse the order of the player list
+            // so that newly added players appear at
+            // the top.
+            return _.chain(state.playersList)
+                .reverse()
+                .value();
         },
         playerNamesList: (state) =>
         {
