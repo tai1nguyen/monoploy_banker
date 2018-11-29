@@ -20,9 +20,9 @@ export default {
         ...mapActions({
             removePlayer: 'playerDataProvider/removePlayer'
         }),
-        removeSelectedPlayer: function(id)
+        removeSelectedPlayer: function(name)
         {
-            this.removePlayer(id);
+            this.removePlayer(name);
         }
     }
 };
