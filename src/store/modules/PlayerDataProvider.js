@@ -17,7 +17,6 @@ export const PLAYER_DATA_PROVIDER = {
         {
             var player = {};
 
-            player.id = _.uniqueId();
             player.name = playerData.name;
             player.startingBalance = playerData.startingBalance;
 
@@ -29,14 +28,14 @@ export const PLAYER_DATA_PROVIDER = {
 
             state.playersList.push(player);
         },
-        REMOVE_PLAYER: (state, id) =>
+        REMOVE_PLAYER: (state, name) =>
         {
             // Loop through the players array and
             // remove the frist player with the
             // provided id.
             state.playersList = _.reject(state.playersList, function(player)
             {
-                return player.id === id;
+                return player.name === name;
             });
         },
         ADD_PLAYER_EXPENSE: (state, transaction) =>
@@ -95,7 +94,12 @@ export const PLAYER_DATA_PROVIDER = {
     getters: {
         playersList: (state) =>
         {
-            return state.playersList;
+            // Reverse the order of the player list
+            // so that newly added players appear at
+            // the top.
+            return _.chain(state.playersList)
+                .reverse()
+                .value();
         },
         playerNamesList: (state) =>
         {

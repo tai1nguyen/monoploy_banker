@@ -9,10 +9,10 @@
         <v-spacer></v-spacer>
     </v-toolbar>
     <v-layout row>
-        <v-flex>
+        <v-flex xs6>
             <a-transaction-form></a-transaction-form>
         </v-flex>
-        <v-flex>
+        <v-flex xs6>
             <a-transaction-history-list></a-transaction-history-list>
         </v-flex>
     </v-layout>
@@ -25,6 +25,7 @@
                 :headers="headers"
                 :items="playerData"
                 class="elevation-1"
+                hide-actions
             >
                 <template slot="items" slot-scope="props">
                     <td>{{ props.item.name }}</td>

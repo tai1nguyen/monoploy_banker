@@ -1,20 +1,15 @@
 <v-stepper v-model="step">
     <v-stepper-header>
         <v-stepper-step :complete="step > 1" step="1">Welcome</v-stepper-step>
-
         <v-divider></v-divider>
-
         <v-stepper-step :complete="step > 2" step="2">Add Players</v-stepper-step>
-
         <v-divider></v-divider>
-
         <v-stepper-step step="3">Complete</v-stepper-step>
     </v-stepper-header>
 
     <v-stepper-items>
-        <v-stepper-content step="1" fixed>
+        <v-stepper-content step="1">
             <a-welcome-step></a-welcome-step>
-
             <v-card-actions>
                 <v-spacer></v-spacer>
                 <v-btn color="primary" @click="step = 2">
@@ -23,9 +18,8 @@
             </v-card-actions>
         </v-stepper-content>
 
-        <v-stepper-content step="2" fixed>
+        <v-stepper-content step="2">
             <a-add-players-step></a-add-players-step>
-
             <v-card-actions>
                 <v-btn @click="step = 1">Back</v-btn>
                 <v-spacer></v-spacer>
@@ -37,7 +31,6 @@
 
         <v-stepper-content step="3">
             <a-complete-step></a-complete-step>
-
             <v-card-actions>
                 <v-btn @click="step = 2">Back</v-btn>
                 <v-spacer></v-spacer>
