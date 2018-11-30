@@ -1,5 +1,4 @@
 <template>
-    <!-- <v-app dark id="app"> -->
     <v-app id="app">
         <a-main-view></a-main-view>
     </v-app>
